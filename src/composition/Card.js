@@ -1,6 +1,9 @@
 import React from "react";
 import "./Card.css";
 
+// the Card component will be passed the title and content from
+// the List object when it is generated
+
 function Card(props) {
   return (
     <div className="Card">
