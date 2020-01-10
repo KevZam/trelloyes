@@ -8,10 +8,14 @@ import "./List.css";
 // data inside that key:obj
 
 function List(props) {
-  console.log(props);
-
-  const cards = props.cardKeys.map(card => (
-    <Card key={card.id} title={card.title} content={card.content} />
+  const cards = props.cardIds.map(card => (
+    <Card
+      key={card.id}
+      id={card.id}
+      title={card.title}
+      content={card.content}
+      onDeleteCard={props.onDeleteItem}
+    />
   ));
 
   return (
@@ -21,7 +25,11 @@ function List(props) {
       </header>
       <div className="List-cards">
         {cards}
-        <button type="button" className="List-add-button">
+        <button
+          type="button"
+          className="List-add-button"
+          onClick={() => props.onAddItem(props.id)}
+        >
           + Add Random Card
         </button>
       </div>
